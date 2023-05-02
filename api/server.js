@@ -1,8 +1,14 @@
 const express = require('express');
-
+const { logger,
+  validatePost,
+  validateUser,
+  validateUserId } = require('./middleware/middleware')
 const server = express();
 
+server.use(logger)
+
 // remember express by default cannot parse JSON in request bodies
+server.use(express.json())
 
 // global middlewares and the user's router need to be connected here
 
